@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Game</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="navbar"></div>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Update Game</h1>
+            <form action="updateGame">
+                <div class="form-group">
+                    <label class="control-genre">ID</label>
+                    <input type="text" name="id" readonly th:value="${game.Id}" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-genre">Name</label>
+                    <input type="text" name="Name" th:value="${game.Name}" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-genre">Publisher</label>
+                    <input type="text" name="Publisher" class="form-control" th:value="${game.Publisher}" />
+                </div>
+                <div class="form-group">
+                    <label class="control-genre">Price</label>
+                    <input type="text" name="Price" th:value="${game.Price}" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-genre">Rating</label>
+                    <input type="text" name="Rating" th:value="${game.Rating}" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-genre">Publishing Date</label>
+                    <input type="date" name="creationDate" th:value="${#dates.format(game.Date, 'MM-dd-yyyy')}" class="form-control" />
+                </div>
+                <div class="form-group d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <a th:href="@{gamesList}" class="btn btn-dark">Back to list</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

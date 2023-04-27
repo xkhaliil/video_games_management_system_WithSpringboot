@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a New Game</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="navbar"></div>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title text-center mb-5">Add Game</h1>
+            <form th:action="@{saveGame}" method="post">
+                <div class="form-group">
+                    <label for="Name" class="control-label">Name:</label>
+                    <input type="text" id="Name" name="Name" class="form-control" th:value="${game.Name}" />
+                    <p th:errors="*{game.Name}" class="text-danger"></p>
+                </div>
+                <div class="form-group">
+                    <label for="Publisher" class="control-label">Publisher:</label>
+                    <input type="text" id="Publisher" name="Publisher" class="form-control" th:value="${game.Publisher}" />
+                    <p th:errors="*{game.Publisher}" class="text-danger"></p>
+                </div>
+                <div class="form-group">
+                    <label for="Price" class="control-label">Price:</label>
+                    <input type="text" id="Price" name="Price" class="form-control" th:value="${game.Price}" />
+                    <p th:errors="*{game.Price}" class="text-danger"></p>
+                </div>
+                <div class="form-group">
+                    <label for="Rating" class="control-label">Rating:</label>
+                    <input type="text" id="Rating" name="Rating" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Date" class="control-label">Publishing Date:</label>
+                    <input type="date" id="Date" name="Date" class="form-control" th:value="${game.Date}" />
+                    <p th:errors="*{game.Date}" class="text-danger"></p>
+                </div>
+                <div class="form-group d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success">Add</button>
+                    <a th:href="@{gamesList}" class="btn btn-secondary">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
